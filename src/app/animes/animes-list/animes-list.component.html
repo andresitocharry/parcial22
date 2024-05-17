@@ -1,0 +1,31 @@
+<div *ngIf="selected">
+  <app-animes-detail [animeDetail]="selectedAnime"></app-animes-detail>
+
+ </div>
+ 
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4" *ngFor="let anime of animes">
+      
+      <div class="card" style="max-width: 18rem;">
+        <div class="card-header">{{anime.name}}</div>
+        <img
+          class="card-img-top"
+          src="{{ anime.img }}"
+          alt="{{ anime.name }}"
+        />
+
+        <div class="card-body" >
+
+
+
+          <h5 class="card-title">⭐ {{anime.Rating}}</h5>
+          <p class="card-text">{{anime.categorie}}</p>
+          <button type="button" class="btn btn-primary" (click)="onSelected(anime)">More information</button>
+        </div>
+    </div>
+  </div>
+</div>
+
+<h3>La cantidad total de espisodios es {{getTotalEpisodios()}} y el rating promedio es {{getPromedio()}} </h3>
